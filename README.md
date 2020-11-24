@@ -4,8 +4,8 @@
 
 ## Course 3: Multiplatform Mobile App Development with React Native
 
-At this point, avoided error:
-This happens becouse the react-navigate use old version of SafeView.
+At this point, avoided error by using:
+This happened because the react-navigation use older version of SafeView.
 
 You have 2 ways:
 
@@ -18,6 +18,7 @@ Go to the dir `YOUR_PROJECT_PATH/node_modules/react-native-safe-area-view/index.
 from:
 
 `this.view._component.measureInWindow((winX, winY, winWidth, winHeight) => {`
+
 to:
 
 `this.view.getNode().measureInWindow((winX, winY, winWidth, winHeight) => {`
