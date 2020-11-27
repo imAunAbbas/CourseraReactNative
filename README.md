@@ -22,3 +22,12 @@ from:
 to:
 
 `this.view.getNode().measureInWindow((winX, winY, winWidth, winHeight) => {`
+
+### To set a local server i.e. `json-server`
+
+1. To implement the server locally, you need to install `json-server` in your PC globally. Simply run `sudo npm install json-server -g`.
+2. Place the given `json-server` folder into your Documents folder and run `json-server --watch db.json -p 3001 -d 2000` in that folder directory.
+3. Once your server is started, you can access data in your browser like this: e.g. `localhost:3001/dishes`.
+
+`Note:`
+If you are unable to access the server by using your IP address, then run this intead: `json-server --host <Your_IP> --watch db.json -p 3001 -d 2000`
