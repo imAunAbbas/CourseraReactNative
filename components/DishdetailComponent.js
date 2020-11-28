@@ -38,6 +38,11 @@ function RenderDish({ dish, favorite, markFavorite, openCommentForm }) {
     else return false;
   };
 
+  const recognizeComment = ({ moveX, moveY, dx, dy }) => {
+    if (dx > 200) return true;
+    else return false;
+  };
+
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: (e, gestureState) => {
       return true;
@@ -70,6 +75,7 @@ function RenderDish({ dish, favorite, markFavorite, openCommentForm }) {
           ],
           { cancelable: false }
         );
+      if (recognizeComment(gestureState)) openCommentForm();
 
       return true;
     },
