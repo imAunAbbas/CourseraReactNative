@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import {
   Text,
   View,
@@ -31,6 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 function RenderDish({ dish, favorite, markFavorite, openCommentForm }) {
+  const viewRef = useRef(null);
+
   const recognizeDrag = ({ moveX, moveY, dx, dy }) => {
     if (dx < -200) return true;
     else return false;
@@ -39,6 +41,13 @@ function RenderDish({ dish, favorite, markFavorite, openCommentForm }) {
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: (e, gestureState) => {
       return true;
+    },
+    onPanResponderGrant: () => {
+      viewRef.current
+        .rubberBand(1000)
+        .then((endState) =>
+          console.log(endState.finished ? 'finished' : 'cancelled')
+        );
     },
     onPanResponderEnd: (e, gestureState) => {
       console.log('pan responder end', gestureState);
@@ -72,6 +81,7 @@ function RenderDish({ dish, favorite, markFavorite, openCommentForm }) {
         animation='fadeInDown'
         duration={2000}
         delay={1000}
+        ref={viewRef}
         {...panResponder.panHandlers}
       >
         <Card featuredTitle={dish.name} image={{ uri: baseUrl + dish.image }}>
