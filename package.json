@@ -10,6 +10,7 @@
   "dependencies": {
     "@react-native-picker/picker": "^1.9.3",
     "expo": "~39.0.2",
+    "expo-image-manipulator": "~8.3.0",
     "expo-image-picker": "~9.1.1",
     "expo-mail-composer": "~8.4.0",
     "expo-notifications": "~0.7.2",
