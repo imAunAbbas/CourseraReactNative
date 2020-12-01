@@ -11,6 +11,7 @@
     "@react-native-community/netinfo": "^5.9.9",
     "@react-native-picker/picker": "^1.9.3",
     "expo": "~39.0.2",
+    "expo-calendar": "~8.5.0",
     "expo-image-manipulator": "~8.3.0",
     "expo-image-picker": "~9.1.1",
     "expo-mail-composer": "~8.4.0",
